@@ -83,7 +83,7 @@ class Register extends CI_Controller {
   function do_upload($file, $param){
     // print_r($file); exit;
     $target_dir = SITE_ROOT."/uploads/picture/";
-    $target_file_name = $param['email'].time().basename($file["picture"]["name"]);
+    $target_file_name = md5($param['email'].time().basename($file["picture"]["name"]));
     $target_file = $target_dir . $target_file_name;
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
