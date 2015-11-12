@@ -43,12 +43,49 @@ class Account extends CI_Controller {
 	function doRefreshFeed(){
 		$this->load->model('M_account');
 		$param = array('username' => $this->session->userdata('username'));
-		$feed = $this->M_account->getFeed($param, 3);
+		$feed = $this->M_account->getFeed($param, 20);
 		// print_r($feed);
 
 		$return = array();
 		if(!empty($feed)){
 			$return = array('status'=>1, 'message'=>'success', 'content' => $feed);
+		}
+		else{
+			$return = array('status'=>0, 'message'=>'failed');
+		}
+		echo (json_encode($return));
+	}
+
+	function doSubmitComment(){
+		$this->load->model('M_account');
+		$param = $_POST;
+		$param['username'] = $this->session->userdata('username');
+		// print_r($param); exit;
+		$do_update = $this->M_account->do_comment($param);
+
+		$return = array();
+		if($do_update == '1'){
+			$return = array('status'=>1, 'message'=>'success');
+		}
+		else{
+			$return = array('status'=>0, 'message'=>'failed');
+		}
+
+		echo (json_encode($return));
+
+	}
+
+	function doRefreshComment(){
+		$this->load->model('M_account');
+		$param = $_POST;
+		// $param ['username'] = $this->session->userdata('username');
+		// print_r($param); exit;
+		$comment = $this->M_account->getComment($param, 50);
+		// print_r($comment);exit;
+
+		$return = array();
+		if(!empty($comment)){
+			$return = array('status'=>1, 'message'=>'success', 'content' => $comment);
 		}
 		else{
 			$return = array('status'=>0, 'message'=>'failed');

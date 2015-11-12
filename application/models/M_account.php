@@ -31,5 +31,26 @@ class M_account extends CI_Model {
     $exec = $this->db->query($query);
     return $exec->result_array();
   }
+
+  function do_comment($param){
+    $exec = $this->db->insert('COMMENT', $param);
+    // print_r($exec); exit;
+
+    return $exec;
+  }
+
+  function getComment($param, $limit, $offset = 0){
+    $query = 'SELECT c.username, c.content, c.timestamp, a.picture_loc, a.name FROM COMMENT c join USER_ACCOUNT a
+              WHERE c.username = a.username
+              AND status_username = "'.$param['status_username'].'"
+              AND status_timestamp = "'.$param['status_timestamp'].'"
+              ORDER BY c.timestamp ASC
+              LIMIT '.$offset.', '.$limit.'
+
+              ';
+              // echo $query; exit;
+    $exec = $this->db->query($query);
+    return $exec->result_array();
+  }
 }
 ?>

@@ -76,7 +76,7 @@
                                       </div>
                                       <div class="row">
                                         <div class="col-sm-4">Birthday</div>
-                                        <div class="col-sm-8"><input type="text" class="form-control input-lg" placeholder="Birthday" name="birthday"></div>
+                                        <div class="col-sm-8"><input type="text" class="form-control input-lg" placeholder="(Format: YYYY-MM-DD)" name="birthday"></div>
                                       </div>
                                       <div class="row">
                                         <div class="col-sm-4">Address</div>
