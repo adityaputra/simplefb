@@ -17,5 +17,19 @@ class M_account extends CI_Model {
 
     return $exec;
   }
+
+  function getfeed($param, $limit, $offset = 0){
+    // $query = $this->db->get_where('STATUS_UPDATE', array('username' => $param['username']), $limit, $offset);
+    // print_r($query->result_array()); exit;
+    $query = 'SELECT u.username, u.timestamp, u.content, a.picture_loc, a.name FROM STATUS_UPDATE u JOIN USER_ACCOUNT a WHERE u.username = a.username
+              -- AND u.username = "'.$param['username'].'"
+              ORDER BY u.timestamp DESC
+              LIMIT '.$offset.', '.$limit.'
+
+              ';
+              // echo $query; exit;
+    $exec = $this->db->query($query);
+    return $exec->result_array();
+  }
 }
 ?>

@@ -27,6 +27,33 @@ class Account extends CI_Controller {
 		$param['username'] = $this->session->userdata('username');
 		// print_r($param); exit;
 		$do_update = $this->M_account->do_update($param);
+
+		$return = array();
+		if($do_update == '1'){
+			$return = array('status'=>1, 'message'=>'success');
+		}
+		else{
+			$return = array('status'=>0, 'message'=>'failed');
+		}
+
+		echo (json_encode($return));
+
+	}
+
+	function doRefreshFeed(){
+		$this->load->model('M_account');
+		$param = array('username' => $this->session->userdata('username'));
+		$feed = $this->M_account->getFeed($param, 3);
+		// print_r($feed);
+
+		$return = array();
+		if(!empty($feed)){
+			$return = array('status'=>1, 'message'=>'success', 'content' => $feed);
+		}
+		else{
+			$return = array('status'=>0, 'message'=>'failed');
+		}
+		echo (json_encode($return));
 	}
 }
 ?>
