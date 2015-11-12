@@ -46,9 +46,19 @@
 
                         <!-- content -->
                       	<div class="row">
-
                          <!-- main col left -->
                          <div class="col-sm-5">
+												 <?php if(isset($status)):?>
+												 <?php if($status == 0):?>
+													 <div class="panel panel-default">
+														 <div class="panel-thumbnail"><img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px"></div>
+														 <div class="panel-body">
+															 <p class="lead">Error</p>
+															 <p><?php echo $message;?></p>
+														 </div>
+													 </div>
+												 <?php endif;?>
+												 <?php endif;?>
                           </div>
 
                           <!-- main col right -->
