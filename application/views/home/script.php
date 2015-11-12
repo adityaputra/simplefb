@@ -72,7 +72,7 @@
         var result = $.parseJSON(msg);
         if(result.status == '1'){
           doRefreshComment(threadId);
-          alert(msg);
+          // alert(msg);
         }
         else{
           alert("Failed to post comment.")
