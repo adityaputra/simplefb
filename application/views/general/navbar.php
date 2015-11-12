@@ -79,15 +79,8 @@
                         <li><a href="">More</a></li>
                       </ul>
                     </li>
-                    <li class="dropdown">
-                      <a href="<?php echo base_url();?>index.php/logout/" class="dropdown-toggle" data-toggle="dropdown">Logout <i class="glyphicon glyphicon-fire"></i> </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="">More</a></li>
-                        <li><a href="">More</a></li>
-                        <li><a href="">More</a></li>
-                        <li><a href="">More</a></li>
-                        <li><a href="">More</a></li>
-                      </ul>
+                    <li >
+                      <a href="<?php echo base_url();?>index.php/logout/" >Logout <i class="glyphicon glyphicon-fire"></i> </a>
                     </li>
                   </ul>
                   </nav>
