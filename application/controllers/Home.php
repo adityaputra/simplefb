@@ -28,8 +28,8 @@ class Home extends CI_Controller {
 			$this->load->view('general/header', $header);
 			$this->load->view('general/navbar');
 			$this->load->view('home/home');
-			$this->load->view('home/script');
 			$this->load->view('general/footer');
+			$this->load->view('home/script');
 		}
 
 		// else
