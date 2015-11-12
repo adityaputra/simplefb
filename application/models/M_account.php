@@ -33,6 +33,8 @@ class M_account extends CI_Model {
   }
 
   function do_comment($param){
+    $param['timestamp'] = date("Y-m-d H:i:s");
+//print_r($param); exit;
     $exec = $this->db->insert('COMMENT', $param);
     // print_r($exec); exit;
 
