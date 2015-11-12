@@ -10,5 +10,12 @@ class M_account extends CI_Model {
     $exec = $this->db->query($query);
     return $exec->result_array();
   }
+
+  function do_update($param){
+    $exec = $this->db->insert('STATUS_UPDATE', $param);
+    // print_r($exec); exit;
+
+    return $exec;
+  }
 }
 ?>
